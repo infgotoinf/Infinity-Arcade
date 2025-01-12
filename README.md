@@ -1,6 +1,6 @@
 # Infinity Arcade!
 ## Eat Snaker V1.0
-A mega cool snake game there you are a snake and you eat the... Apples, I guess?
+A mega cool snake game there you are a snake and you eat the... apples, I guess?
 ### Game features:
 - 3 Difficulties,
 - 2 Field designs,
