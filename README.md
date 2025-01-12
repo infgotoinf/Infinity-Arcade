@@ -9,6 +9,6 @@ A mega cool snake game where you are a snake and you eat... apples, I guess?
 - Handy GUI and control,
 - And of course the most exiting gameplay!
 ### How to play the game?
-1. Download and install Visual C++ either from oficial microsoft site (https://www.microsoft.com/en-gb/download/details.aspx?id=48145) or by launching vc_redist.x64.exe!
+1. Download and install Visual C++ either from oficial microsoft site https://www.microsoft.com/en-gb/download/details.aspx?id=48145 or by launching vc_redist.x64.exe!
 2. Go to "Eat Snaker" folder and download Eat Snaker.exe!
 3. Have fun!
