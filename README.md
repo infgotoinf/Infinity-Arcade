@@ -1,5 +1,5 @@
 # Infinity Arcade!
-## Eat Snaker V1.0
+## Eat Snaker V1.1
 A mega cool snake game where you are a snake and you eat... apples, I guess?
 ### Game features:
 - 3 Difficulties,
@@ -12,3 +12,5 @@ A mega cool snake game where you are a snake and you eat... apples, I guess?
 1. Download and install Visual C++ either from oficial microsoft site https://www.microsoft.com/en-gb/download/details.aspx?id=48145 or by launching vc_redist.x64.exe!
 2. Go to "Eat Snaker" folder and download Eat Snaker.exe!
 3. Have fun!
+### V1.1 bugfix:
+- Now apples can't spawn in the snake!
