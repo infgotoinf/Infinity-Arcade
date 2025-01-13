@@ -118,11 +118,14 @@ COORD generateApple(COORD apple, COORD size, Snake s)
         short Y = rand() % (size.Y - 2) + 1;
         apple = { X, Y };
         for (COORD i : s.snake) {
-            if ((i.X == apple.X - 1 || i.X == apple.X || i.X == apple.X + 1) &&
-                (i.Y == apple.Y - 1 || i.Y == apple.Y || i.Y == apple.Y + 1)) {
+            if ((i.X == apple.X) &&
+                (i.Y == apple.Y)) {
+                stoper = true;
+                break;
             }
-            stoper = false;
-            break;
+            else {
+                stoper = false;
+            }
         }
     } while (stoper);
 
@@ -392,6 +395,7 @@ select:
     while (!(GetAsyncKeyState(VK_UP) || GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState(VK_RIGHT)));
     SetConsoleCursorPosition(console, { 0, 0 });
     drawFrame(size, design);
+    drawApple(apple);
 
     while (!stop) // Пока игра не остановлена
     {
@@ -405,8 +409,9 @@ select:
             SetConsoleCursorPosition(console, score_pos);
             printf("%d.%d", int(score), int(score*10)-int(score)*10);
             apple = generateApple(apple, size, s);
+            drawApple(apple);
         }
-        drawApple(apple);
+        //drawApple(apple);
 
         COORD old_tail = s.snake.back();
 
