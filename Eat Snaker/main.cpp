@@ -91,7 +91,7 @@ struct Snake
 };
 
 // Генерация нового яблока
-COORD generateApple(COORD apple, COORD size, Snake s)
+COORD generateApple(COORD apple, COORD size, Snake& s)
 {
     // Проверка на то, что яблоко не в змейке
     /*auto lambda { [](COORD appl, std::list<COORD> snak)
@@ -191,7 +191,7 @@ auto drawFrame(COORD size, int design)
     }
 }
 
-void draw_behind_tail(int** matrix, COORD tail) { // Зарисовывание поля за змейкой
+void draw_behind_tail(int** const matrix, COORD tail) { // Зарисовывание поля за змейкой
     tail.X *= 2;
     SetConsoleCursorPosition(console, tail);
     tail.X /= 2;
@@ -241,25 +241,25 @@ int main()
     double bestScore = 0;
 select:
     for (int i = 0; i < 2; i++) { // Цикл фор чтобы бага при запуске экзешника не было
-    SetConsoleCursorPosition(console, { 36, 2 }); std::cout << "\033[41m      \033[40m" << "            " <<                                                              "\033[41m      \033[40m" << "            " <<                                        "\033[100m  \033[40m" << "    " <<   "\033[41m      \033[40m";
-    SetConsoleCursorPosition(console, { 36, 3 }); std::cout << "\033[41m  \033[40m" << "            " <<                                             "\033[100m  \033[40m  \033[41m  \033[40m" << "                " <<                                        "\033[100m  \033[40m" << "    " <<   "\033[41m  \033[40m    \033[100m    \033[40m";
-    SetConsoleCursorPosition(console, { 36, 4 }); std::cout << "\033[41m      \033[40m" << "  " << "\033[42m    " <<                               "\033[100m      " <<   "\033[41m      \033[100m    \033[40m" << "    " <<                 "\033[42m    " << "\033[100m  \033[40m  \033[100m  " << "\033[41m      " <<   "\033[100m  \033[40m  \033[100m  \033[40m";
-    SetConsoleCursorPosition(console, { 36, 5 }); std::cout << "\033[41m  \033[40m" << "    " << "\033[42m  \033[40m  \033[42m  \033[40m" << "  " << "\033[100m  \033[40m      \033[41m  \033[100m  \033[40m  \033[100m  " <<    "\033[42m  \033[40m  \033[42m  \033[100m    \033[40m" << "  " <<   "\033[41m  \033[40m    \033[100m  \033[40m";
-    SetConsoleCursorPosition(console, { 36, 6 }); std::cout << "\033[41m      \033[40m" << "  " << "\033[42m    \033[40m" << "  " <<                 "\033[100m    " <<   "\033[41m      \033[100m  \033[40m  \033[100m  \033[40m" << "  " << "\033[42m    " << "\033[100m  \033[40m  \033[100m  " << "\033[41m      " <<   "\033[100m  \033[40m" << "\tV1.0";
-    // Выбор сложности и дизайна
-    SetConsoleCursorPosition(console, { 0, 0 });
-    std::cout << "(USE ARROWS ON YOUR KEYBOARD)\n\nPLEASE SELECT YOUR DIFFICULTY\n\n";
-    std::cout << "1: CASUAL\n2: COOL GUY\n3: SPEEDRUNNER\n\n";
-    std::cout << "(PRESS [ENTER] TO CONTINUE)";
-    SetConsoleCursorPosition(console, { 19, 3 });
-    std::cout << "AND DESIGN:";
-    SetConsoleCursorPosition(console, { 17, 5 });
-    std::cout << "1: CLASSICAL";
-    SetConsoleCursorPosition(console, { 17, 6 });
-    std::cout << "2: CHECKMATE";
-    if (i == 0) {
-        system("cls");
-    }
+        SetConsoleCursorPosition(console, { 36, 2 }); std::cout << "\033[41m      \033[40m" << "            " <<                                                              "\033[41m      \033[40m" << "            " <<                                        "\033[100m  \033[40m" << "    " <<   "\033[41m      \033[40m";
+        SetConsoleCursorPosition(console, { 36, 3 }); std::cout << "\033[41m  \033[40m" << "            " <<                                             "\033[100m  \033[40m  \033[41m  \033[40m" << "                " <<                                        "\033[100m  \033[40m" << "    " <<   "\033[41m  \033[40m    \033[100m    \033[40m";
+        SetConsoleCursorPosition(console, { 36, 4 }); std::cout << "\033[41m      \033[40m" << "  " << "\033[42m    " <<                               "\033[100m      " <<   "\033[41m      \033[100m    \033[40m" << "    " <<                 "\033[42m    " << "\033[100m  \033[40m  \033[100m  " << "\033[41m      " <<   "\033[100m  \033[40m  \033[100m  \033[40m";
+        SetConsoleCursorPosition(console, { 36, 5 }); std::cout << "\033[41m  \033[40m" << "    " << "\033[42m  \033[40m  \033[42m  \033[40m" << "  " << "\033[100m  \033[40m      \033[41m  \033[100m  \033[40m  \033[100m  " <<    "\033[42m  \033[40m  \033[42m  \033[100m    \033[40m" << "  " <<   "\033[41m  \033[40m    \033[100m  \033[40m";
+        SetConsoleCursorPosition(console, { 36, 6 }); std::cout << "\033[41m      \033[40m" << "  " << "\033[42m    \033[40m" << "  " <<                 "\033[100m    " <<   "\033[41m      \033[100m  \033[40m  \033[100m  \033[40m" << "  " << "\033[42m    " << "\033[100m  \033[40m  \033[100m  " << "\033[41m      " <<   "\033[100m  \033[40m" << "\tV1.0";
+        // Выбор сложности и дизайна
+        SetConsoleCursorPosition(console, { 0, 0 });
+        std::cout << "(USE ARROWS ON YOUR KEYBOARD)\n\nPLEASE SELECT YOUR DIFFICULTY\n\n";
+        std::cout << "1: CASUAL\n2: COOL GUY\n3: SPEEDRUNNER\n\n";
+        std::cout << "(PRESS [ENTER] TO CONTINUE)";
+        SetConsoleCursorPosition(console, { 19, 3 });
+        std::cout << "AND DESIGN:";
+        SetConsoleCursorPosition(console, { 17, 5 });
+        std::cout << "1: CLASSICAL";
+        SetConsoleCursorPosition(console, { 17, 6 });
+        std::cout << "2: CHECKMATE";
+        if (i == 0) {
+            system("cls");
+        }
     }
     int difficulty = 0;
     int design = 0;
