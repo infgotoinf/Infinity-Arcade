@@ -1,5 +1,5 @@
 # Infinity Arcade!
-## Eat Snaker V1.1
+## Eat Snaker V1.1.5
 A mega cool snake game where you are a snake and you eat... apples, I guess?
 ### V1.1 bugfix:
 - Now apples can't spawn in the snake!
